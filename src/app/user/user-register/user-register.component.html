@@ -9,26 +9,28 @@
         <div class="form-group col-12">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="userName">
+            <span *ngIf="!userName.valid && userName.touched">Please provide a name</span>
         </div>
 
         <div class="form-group col-12">
           <label for="email" class="form-label">Email</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="email">
+          <span *ngIf="!email.valid && email.touched" class ="error-block"></span>
         </div>
 
         <div class="form-group col-12">
           <label for="passwrod" class="form-label">Password</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="password">
         </div>
 
         <div class="form-group col-12">
           <label for="cpassword" class="form-label">Confirm Password</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="passwordConfirm">
         </div>
 
         <div class="form-group col-12">
           <label for="mobile" class="form-label">Mobile</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="mobile">
         </div>
 
         <div class="form-group col-12">
