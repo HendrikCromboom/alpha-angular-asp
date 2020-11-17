@@ -19,12 +19,12 @@ export class UserRegisterComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       passwordConfirm: new FormControl(null, [Validators.required]),
-      mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
-    });
+      mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
+    }, this.passwordMatchingValidator);
   }
 
   passwordMatchingValidator(fg: FormGroup): Validators {
-    return fg.get('password').value === fg.get('passwordConfirm').value ? null:
+    return fg.get('password').value === fg.get('passwordConfirm').value ? null :
     {notmatched: true};
   }
 
@@ -35,6 +35,13 @@ export class UserRegisterComponent implements OnInit {
   get email(){
     return this.registrationForm.get('email') as FormControl;
   }
+  get password(){
+    return this.registrationForm.get('password') as FormControl;
+  }
+  get passwordConfirm(){
+    return this.registrationForm.get('passwordConfirm') as FormControl;
+  }
+
 
   onSubmit(){
     console.log(this.registrationForm);
