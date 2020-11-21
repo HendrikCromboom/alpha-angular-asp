@@ -9,13 +9,13 @@
         <div class="form-group col-12">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="userName">
-            <span *ngIf="!userName.valid && userName.touched">Please provide a name</span>
+            <span *ngIf="!userName.valid && (userName.touched || userSubmitted)">Please provide a name</span>
         </div>
 
         <div class="form-group col-12">
           <label for="email" class="form-label">Email</label>
           <input type="text" class="form-control" formControlName="email">
-          <span *ngIf="!email.valid && email.touched" class ="error-block">
+          <span *ngIf="!email.valid && (email.touched || userSubmitted)" class ="error-block">
             <span *ngIf="email.hasError('required')">
               Please provide an email
             </span>
@@ -28,7 +28,7 @@
         <div class="form-group col-12">
           <label for="passwrod" class="form-label">Password</label>
           <input type="text" class="form-control" formControlName="password">
-          <span *ngIf="!password.valid && password.touched">
+          <span *ngIf="!password.valid && (password.touched || userSubmitted)">
             <span *ngIf="password.errors['required']">
               Please provide a password
             </span>
@@ -42,7 +42,7 @@
         <div class="form-group col-12">
           <label for="passwordConfirm" class="form-label">Confirm Password</label>
           <input type="text" class="form-control" formControlName="passwordConfirm">
-          <span *ngIf="!passwordConfirm.valid && passwordConfirm.touched">
+          <span *ngIf="!passwordConfirm.valid && (passwordConfirm.touched || userSubmitted)">
             <span *ngIf="passwordConfirm.hasError('required')">
               Please confirm password
             </span>
