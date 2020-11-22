@@ -28,11 +28,33 @@
             Login
           </a>
         </li>
-        <li *ngIf="loggedin()" class="nav-item">
-          <a class="nav-link" (click)="onLogout()">
-            Logout
+        <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
+          <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
+            Welcome
           </a>
-        </li>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a href="#" class="dropdown-item">
+              View Dashboard
+            </a>
+            <a href="#" class="dropdown-item">
+              My Profile
+            </a>
+            <a href="#" class="dropdown-item">
+              Change Password
+            </a>
+            <a (click)="onLogout()" class="dropdownitem">
+              Logout
+            </a>
+
+          </div>
+
+
+
+
+
+
+        </div>
+
       </ul>
     </div>
   </div>

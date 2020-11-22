@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-user-login',
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class UserLoginComponent implements OnInit {
      if(token){
        localStorage.setItem('token', token.userName)
       this.alertify.success("Eyyy");
+      this.router.navigate(['/'])
      }else{
        this.alertify.error("Big oof...")
      }
